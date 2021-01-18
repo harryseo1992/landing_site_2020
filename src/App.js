@@ -5,6 +5,9 @@ import linkedinicon from '../src/linkedinicon.png'
 import bookmanager from '../src/library.jpg'
 import yahtzee from '../src/yahtzee_image.jpg'
 
+// Add in kotlin project with recyclerview that you have done!
+// Upload it on github
+
 
 class App extends React.Component {
   state = {
@@ -22,28 +25,51 @@ class App extends React.Component {
           class: "linkedinicon",
           objectID: "linkedin"
         }
+      ],
+      projects: [
+        {
+          src: bookmanager,
+          alt: "Book Manager",
+          name1: "Book",
+          name2: "Manager",
+          url: "https://github.com/harryseo1992/BookManager.git"
+        },
+        {
+          src: yahtzee,
+          alt: "Yahtzee",
+          name1: "Yahtzee",
+          name2: "in Python",
+          url: "https://github.com/harryseo1992/Yahtzee"
+        },
+        {
+
+        }
       ]
       
   };
 
-  authenticate(){
-    return new Promise(resolve => setTimeout(resolve, 2000)) // 2 seconds
-  }
+  // authenticate(){
+  //   // Simulates loading time
+  //   return new Promise(resolve => setTimeout(resolve, 2000)) // 2 seconds
+  // }
 
   componentDidMount(){
+    // Will change isLoading in state to false after 3 seconds - Simulate loading time
     var isLoading = this.state;
     setTimeout(() => {
         this.setState({ isLoading: false })
-    }, 3000);
+    }, 2000);
   }
 
   render() {
-    const { isLoading, info } = this.state;
+    const { isLoading, info, projects } = this.state;
+    // Before isLoading is changed to false, the root div will show loading ring
     return (
       <section className="container">
         {isLoading ? (
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         ) : (
+          // After loading is "finished", the following will be put on root div
           <div className="content">
             <div className="Iam">
               <p>I am</p>
@@ -63,30 +89,12 @@ class App extends React.Component {
             </article>
             <div className="projects">
               <h4>My projects</h4>
-              <div class="grid">
-                <figure class="effect-sadie">
-                  <img src={ bookmanager } alt="Book Manager"/>
-                  <figcaption>
-                    <h2>Book <span>Manager</span></h2>
-                    <a href="http://www.google.com/">View more</a>
-                  </figcaption>			
-                </figure>
-              </div>
-              <div class="grid">
-                <figure class="effect-sadie">
-                  <img src={ yahtzee } alt="Yahtzee"/>
-                  <figcaption>
-                    <h2>Yahtzee <span>in Python</span></h2>
-                    <a href="http://www.google.com/">View more</a>
-                  </figcaption>			
-                </figure>
-              </div>
+              <Project project={ projects } />
             </div>
             <div className="contact">
               <h4>Contact Info</h4>
               <List list={ info }/>
             </div>
-            <Grido />
           </div>
         )}
       </section>
@@ -94,20 +102,20 @@ class App extends React.Component {
   }
 };
 
-function Grido() {
-  return (
-    <div class="grid">
-      <figure class="effect-sadie">
-        <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02"/>
-        <figcaption>
-          <h2>Holy <span>Sadie</span></h2>
-            <p>Sadie never took her eyes off me.</p>
-            <a href="http://www.google.com/">View more</a>
-        </figcaption>			
-      </figure>
-    </div>
-  );
-}
+// function Grido() {
+//   return (
+//     <div class="grid">
+//       <figure class="effect-sadie">
+//         <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02"/>
+//         <figcaption>
+//           <h2>Holy <span>Sadie</span></h2>
+//             <p>Sadie never took her eyes off me.</p>
+//             <a href="http://www.google.com/">View more</a>
+//         </figcaption>			
+//       </figure>
+//     </div>
+//   );
+// }
 
 const List = props =>
   props.list.map(info => (
@@ -116,9 +124,22 @@ const List = props =>
       </a>
   ));
 
+const Project = props =>
+    props.project.map(projects => (
+      <div class="grid">
+        <figure class="effect-sadie">
+          <img src={ projects.src } alt= { projects.alt }/>
+          <figcaption>
+            <h2>{ projects.name1 } <span>{ projects.name2 }</span></h2>
+            <a href={ projects.url }>View more</a>
+          </figcaption>			
+        </figure>
+      </div>
+    ));
+
 export default App;
 
-{/* <div className="contact">
+/* <div className="contact">
               <h4>Contact Info</h4>
               <a href="https://github.com/harryseo1992">
                 <img src={ githubicon } className="icon" alt="github"/>
@@ -126,4 +147,23 @@ export default App;
               <a href="https://www.linkedin.com/in/jong-hwan-seo-579238202/">
                 <img src={ linkedinicon } className="linkedinicon" alt="linkedin" />
               </a>
-            </div> */}
+            </div> */
+
+            // <div class="grid">
+            //     <figure class="effect-sadie">
+            //       <img src={ bookmanager } alt="Book Manager"/>
+            //       <figcaption>
+            //         <h2>Book <span>Manager</span></h2>
+            //         <a href="http://www.google.com/">View more</a>
+            //       </figcaption>			
+            //     </figure>
+            //   </div>
+            //   <div class="grid">
+            //     <figure class="effect-sadie">
+            //       <img src={ yahtzee } alt="Yahtzee"/>
+            //       <figcaption>
+            //         <h2>Yahtzee <span>in Python</span></h2>
+            //         <a href="http://www.google.com/">View more</a>
+            //       </figcaption>			
+            //     </figure>
+            //   </div>
