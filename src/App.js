@@ -85,7 +85,9 @@ class App extends React.Component {
             </div>
             <article className="about">
               <h4>About me</h4>
-              <p>My name is Jong Hwan Seo but my English name is Harry.</p>
+              <p>Hi! My name is Jong Hwan Seo. I'm studying Computer Systems Technology
+              <br>at British Columbia Institute of Technology.</br>
+              </p>
             </article>
             <div className="projects">
               <h4>My projects</h4>
@@ -101,21 +103,6 @@ class App extends React.Component {
     );
   }
 };
-
-// function Grido() {
-//   return (
-//     <div class="grid">
-//       <figure class="effect-sadie">
-//         <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02"/>
-//         <figcaption>
-//           <h2>Holy <span>Sadie</span></h2>
-//             <p>Sadie never took her eyes off me.</p>
-//             <a href="http://www.google.com/">View more</a>
-//         </figcaption>			
-//       </figure>
-//     </div>
-//   );
-// }
 
 const List = props =>
   props.list.map(info => (
@@ -138,32 +125,3 @@ const Project = props =>
     ));
 
 export default App;
-
-/* <div className="contact">
-              <h4>Contact Info</h4>
-              <a href="https://github.com/harryseo1992">
-                <img src={ githubicon } className="icon" alt="github"/>
-              </a>
-              <a href="https://www.linkedin.com/in/jong-hwan-seo-579238202/">
-                <img src={ linkedinicon } className="linkedinicon" alt="linkedin" />
-              </a>
-            </div> */
-
-            // <div class="grid">
-            //     <figure class="effect-sadie">
-            //       <img src={ bookmanager } alt="Book Manager"/>
-            //       <figcaption>
-            //         <h2>Book <span>Manager</span></h2>
-            //         <a href="http://www.google.com/">View more</a>
-            //       </figcaption>			
-            //     </figure>
-            //   </div>
-            //   <div class="grid">
-            //     <figure class="effect-sadie">
-            //       <img src={ yahtzee } alt="Yahtzee"/>
-            //       <figcaption>
-            //         <h2>Yahtzee <span>in Python</span></h2>
-            //         <a href="http://www.google.com/">View more</a>
-            //       </figcaption>			
-            //     </figure>
-            //   </div>
